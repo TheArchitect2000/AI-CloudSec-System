@@ -1,0 +1,16 @@
+Install:
+Cowrie (SSH/Telnet honeypot).
+Dionaea (malware capture).
+HoneyDB agent (for logging common probes).
+
+Then, Forward logs to CloudWatch or S3 for analysis.
+
+Athena + S3 → Query honeypot logs to find attack patterns.
+
+Thinkst Canary (deception sensors).
+Illusive Networks / Attivo (enterprise-grade deception).
+
+Important Considerations
+	•	Isolation is critical → Put honeypots in a separate VPC or subnet to avoid risk to production.
+	•	Never store sensitive data on honeypots — they are designed to be compromised.
+	•	Use monitoring & alerts so you know when someone interacts with it.
