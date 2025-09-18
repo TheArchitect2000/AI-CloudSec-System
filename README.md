@@ -41,13 +41,19 @@ The project combines **theory** (cybersecurity frameworks) and **practice** (clo
 
 ## Getting Started  
 
-### 1. Clone the repo
+### 1. Ensure git lfs is installed 
+```bash
+git lfs install
+```
+If not installed, please review the document for [Installing Git Large File Storage](https://docs.github.com/en/repositories/working-with-files/managing-large-files/installing-git-large-file-storage) before cloning the repository.
+
+### 2. Clone the repo
 ```bash
 git clone https://github.com/<your-org>/CloudSec-AI-Lab.git
 cd CloudSec-AI-Lab
 ```
 
-### 2. Set up environment
+### 3. Set up environment
 - Install Python 3.10+  
 - Create a virtual environment:
   ```bash
@@ -57,7 +63,7 @@ cd CloudSec-AI-Lab
   ```
 - Install dependencies (to be listed in `requirements.txt`).  
 
-### 3. Cloud Setup
+### 4. Cloud Setup
 - AWS Free Tier account (for CloudTrail, GuardDuty, EC2 honeypots).  
 - Snowflake free trial account (for analytics + queries).  
 
