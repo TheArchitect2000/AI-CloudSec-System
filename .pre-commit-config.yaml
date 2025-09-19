@@ -1,0 +1,36 @@
+repos:
+  # 🖤 Black: Python code formatter
+  - repo: https://github.com/psf/black
+    rev: 23.9.1
+    hooks:
+      - id: black
+        args: [--line-length=88]
+
+  # 🐶 Ruff: Python linter (fast replacement for flake8, pylint, isort)
+  - repo: https://github.com/charliermarsh/ruff-pre-commit
+    rev: v0.0.285
+    hooks:
+      - id: ruff
+        args: [--fix]   # auto-fixes imports, unused vars, etc.
+
+  # 📓 nbstripout: strip Jupyter notebook outputs before commit
+  - repo: https://github.com/kynan/nbstripout
+    rev: 0.6.1
+    hooks:
+      - id: nbstripout
+
+  # 🔍 Detect secrets (avoid committing AWS keys, tokens, etc.)
+  - repo: https://github.com/Yelp/detect-secrets
+    rev: v1.4.0
+    hooks:
+      - id: detect-secrets
+
+  # 📜 YAML/JSON checkers (catch broken config files)
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.4.0
+    hooks:
+      - id: check-yaml
+      - id: check-json
+      - id: check-added-large-files   # prevents >10 MB files sneaking into Git
+      - id: end-of-file-fixer
+      - id: trailing-whitespace
