@@ -14,3 +14,6 @@ Important Considerations
 	•	Isolation is critical → Put honeypots in a separate VPC or subnet to avoid risk to production.
 	•	Never store sensitive data on honeypots — they are designed to be compromised.
 	•	Use monitoring & alerts so you know when someone interacts with it.
+
+Cowrie Installation Steps:
+	•	https://docs.cowrie.org/en/latest/INSTALL.html
