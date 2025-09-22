@@ -19,3 +19,5 @@ Cowrie Installation Steps:
 	•	https://docs.cowrie.org/en/latest/INSTALL.html
 Dionaea Installation Steps:
 	•	https://dionaea.readthedocs.io/en/latest/installation.html
+HoneyDB agent Installation Steps:
+	•	https://honeydb-agent-docs.readthedocs.io/en/latest/
