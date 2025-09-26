@@ -4,4 +4,7 @@ Dropped 8 constant cols: [' Bwd PSH Flags', ' Bwd URG Flags', 'Fwd Avg Bytes/Bul
 Dropped 3 IP/Timestamp cols
 Low variance removed: 9 cols
 High correlation removed: 17 cols
+<<<<<<< HEAD:scripts/team2_TrafficLabellingClean_report.txt
 Optimized numeric cols: 466.14MB → 263.58MB
+=======
+>>>>>>> a79912b05f6988dd6d6688c1db24b8d313eede4e:scripts/team2_traffic_validation_report.txt
