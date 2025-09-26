@@ -10,19 +10,13 @@ Enhancements:
 - Output CSV automatically uses the script name.
 """
 
-<<<<<<< HEAD
-import os
-import pandas as pd
-import numpy as np
-from sklearn.preprocessing import StandardScaler
-from sklearn.feature_selection import VarianceThreshold
-=======
+
 import os  # Python v3.13.7 standard library
 import pandas as pd  # v2.3.2
 import numpy as np  # v2.2.3
 from sklearn.preprocessing import StandardScaler  # v1.6.1
 from sklearn.feature_selection import VarianceThreshold  # v1.6.1
->>>>>>> a79912b05f6988dd6d6688c1db24b8d313eede4e
+
 
 # ---------------- Settings ----------------
 DATA_FOLDER = r"C:\Users\hi\AI-CloudSec-System\data\traffic"
@@ -101,7 +95,7 @@ def feature_selection(df, log, label_col=" Label"):
 
     return X_df
 
-<<<<<<< HEAD
+
 # ---------------- Downcast + Round ----------------
 def optimize_numeric(df, log, decimals=2):
     before_mem = df.memory_usage(deep=True).sum() / (1024*1024)
@@ -114,8 +108,7 @@ def optimize_numeric(df, log, decimals=2):
     after_mem = df.memory_usage(deep=True).sum() / (1024*1024)
     log.append(f"Optimized numeric cols: {before_mem:.2f}MB → {after_mem:.2f}MB")
     return df
-=======
->>>>>>> a79912b05f6988dd6d6688c1db24b8d313eede4e
+
 
 # ---------------- Main ----------------
 def main():

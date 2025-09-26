@@ -229,6 +229,8 @@ Icon[
 
 # Thumbnails
 ._*
+
 scripts/traffic_merged_clean.csv
 scripts/traffic_validation_report.txt
 scripts/team2_TrafficLabellingClean.csv
+
