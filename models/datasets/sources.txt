@@ -1,3 +1,3 @@
-team_11_ton-iot.csv, https://www.kaggle.com/datasets/programmer3/ton-iot-network-intrusion-dataset
-team_11_BotNeTIoT-L01_label_NoDuplicates.csv, https://www.kaggle.com/datasets/azalhowaide/iot-dataset-for-intrusion-detection-systems-ids/data
-team_11_Group_11_TON_IoT_unsw_edu_au_cleaned.csv, https://research.unsw.edu.au/projects/toniot-datasets
+team_11_ton-iot, https://www.kaggle.com/datasets/programmer3/ton-iot-network-intrusion-dataset
+team_11_BotNeTIoT-L01 https://www.kaggle.com/datasets/azalhowaide/iot-dataset-for-intrusion-detection-systems-ids/data
+team_11_Group_11_TON_IoT_unsw_edu_au_cleaned, https://research.unsw.edu.au/projects/toniot-datasets
