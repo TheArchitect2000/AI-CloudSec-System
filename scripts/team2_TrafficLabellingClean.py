@@ -8,16 +8,17 @@ Enhancements:
 - Light feature selection (low variance + high correlation filter).
 """
 
-import os #Python v3.13.7 standard library
-import pandas as pd #v2.3.2 
-import numpy as np #v2.2.3
-from sklearn.preprocessing import StandardScaler #v1.6.1
-from sklearn.feature_selection import VarianceThreshold  #v1.6.1
+import os  # Python v3.13.7 standard library
+import pandas as pd  # v2.3.2
+import numpy as np  # v2.2.3
+from sklearn.preprocessing import StandardScaler  # v1.6.1
+from sklearn.feature_selection import VarianceThreshold  # v1.6.1
 
 # ---------------- Settings ----------------
 DATA_FOLDER = r"C:\Users\hi\AI-CloudSec-System\data\traffic"
 OUT_FILE = r"C:\Users\hi\AI-CloudSec-System-1\scripts\traffic_merged_clean.csv"
 REPORT = r"C:\Users\hi\AI-CloudSec-System-1\scripts\traffic_validation_report.txt"
+
 
 # ---------------- Safe CSV Reader ----------------
 def safe_read_csv(path):
@@ -28,12 +29,15 @@ def safe_read_csv(path):
         print(f"⚠️  UTF-8 failed for {path}, retrying with latin1 ...")
         return pd.read_csv(path, low_memory=False, encoding="latin1")
 
+
 # ---------------- Cleaning ----------------
 def clean_dataframe(df, log):
     # Drop NA & duplicates
     before = len(df)
     df = df.dropna().drop_duplicates()
-    log.append(f"Dropna + duplicates: {before - len(df)} rows removed, now {len(df)} rows")
+    log.append(
+        f"Dropna + duplicates: {before - len(df)} rows removed, now {len(df)} rows"
+    )
 
     # Drop constant columns
     const_cols = df.columns[df.nunique() <= 1].tolist()
@@ -54,6 +58,7 @@ def clean_dataframe(df, log):
         df = df[df[" Flow Bytes/s"] < 1e9]
 
     return df
+
 
 # ---------------- Light Feature Selection ----------------
 def feature_selection(df, log, label_col=" Label"):
@@ -88,10 +93,15 @@ def feature_selection(df, log, label_col=" Label"):
 
     return X_df
 
+
 # ---------------- Main ----------------
 def main():
     log = []
-    files = [os.path.join(DATA_FOLDER, f) for f in os.listdir(DATA_FOLDER) if f.endswith(".csv")]
+    files = [
+        os.path.join(DATA_FOLDER, f)
+        for f in os.listdir(DATA_FOLDER)
+        if f.endswith(".csv")
+    ]
     dfs = [safe_read_csv(f) for f in files]
     df = pd.concat(dfs, ignore_index=True)
     log.append(f"Merged {len(files)} files: {df.shape}")
@@ -105,6 +115,7 @@ def main():
 
     print("✅ Saved cleaned dataset:", OUT_FILE, df_final.shape)
     print("Validation report written:", REPORT)
+
 
 if __name__ == "__main__":
     main()
