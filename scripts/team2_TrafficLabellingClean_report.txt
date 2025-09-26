@@ -3,6 +3,8 @@ Dropna + duplicates: 290162 rows removed, now 2829183 rows
 Dropped 8 constant cols: [' Bwd PSH Flags', ' Bwd URG Flags', 'Fwd Avg Bytes/Bulk', ' Fwd Avg Packets/Bulk', ' Fwd Avg Bulk Rate', ' Bwd Avg Bytes/Bulk', ' Bwd Avg Packets/Bulk', 'Bwd Avg Bulk Rate']
 Dropped 3 IP/Timestamp cols
 Low variance removed: 9 cols
-
-
 High correlation removed: 17 cols
+<<<<<<< HEAD:scripts/team2_TrafficLabellingClean_report.txt
+Optimized numeric cols: 466.14MB → 263.58MB
+=======
+>>>>>>> a79912b05f6988dd6d6688c1db24b8d313eede4e:scripts/team2_traffic_validation_report.txt
