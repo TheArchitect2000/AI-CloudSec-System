@@ -10,11 +10,12 @@ Enhancements:
 - Output CSV automatically uses the script name.
 """
 
-import os
-import pandas as pd
-import numpy as np
-from sklearn.preprocessing import StandardScaler
-from sklearn.feature_selection import VarianceThreshold
+import os  # Python v3.13.7 standard library
+import pandas as pd  # v2.3.2
+import numpy as np  # v2.2.3
+from sklearn.preprocessing import StandardScaler  # v1.6.1
+from sklearn.feature_selection import VarianceThreshold  # v1.6.1
+
 
 # ---------------- Settings ----------------
 DATA_FOLDER = r"C:\Users\hi\AI-CloudSec-System\data\traffic"
@@ -26,6 +27,7 @@ SCRIPT_NAME = os.path.splitext(os.path.basename(SCRIPT_PATH))[0]
 OUT_FILE = os.path.join(SCRIPT_DIR, f"{SCRIPT_NAME}.csv")
 REPORT = os.path.join(SCRIPT_DIR, f"{SCRIPT_NAME}_report.txt")
 
+
 # ---------------- Safe CSV Reader ----------------
 def safe_read_csv(path):
     try:
@@ -35,11 +37,14 @@ def safe_read_csv(path):
         print(f"⚠️ UTF-8 failed for {path}, retrying with latin1 ...")
         return pd.read_csv(path, low_memory=False, encoding="latin1")
 
+
 # ---------------- Cleaning ----------------
 def clean_dataframe(df, log):
     before = len(df)
     df = df.dropna().drop_duplicates()
-    log.append(f"Dropna + duplicates: {before - len(df)} rows removed, now {len(df)} rows")
+    log.append(
+        f"Dropna + duplicates: {before - len(df)} rows removed, now {len(df)} rows"
+    )
 
     const_cols = df.columns[df.nunique() <= 1].tolist()
     if const_cols:
@@ -57,6 +62,7 @@ def clean_dataframe(df, log):
         df = df[df[" Flow Bytes/s"] < 1e9]
 
     return df
+
 
 # ---------------- Light Feature Selection ----------------
 def feature_selection(df, log, label_col=" Label"):
@@ -88,23 +94,29 @@ def feature_selection(df, log, label_col=" Label"):
 
     return X_df
 
+
 # ---------------- Downcast + Round ----------------
 def optimize_numeric(df, log, decimals=2):
-    before_mem = df.memory_usage(deep=True).sum() / (1024*1024)
+    before_mem = df.memory_usage(deep=True).sum() / (1024 * 1024)
     for col in df.select_dtypes(include=[np.number]).columns:
         if pd.api.types.is_integer_dtype(df[col]):
             df[col] = pd.to_numeric(df[col], downcast="integer")
         else:
             df[col] = df[col].round(decimals)
             df[col] = pd.to_numeric(df[col], downcast="float")
-    after_mem = df.memory_usage(deep=True).sum() / (1024*1024)
+    after_mem = df.memory_usage(deep=True).sum() / (1024 * 1024)
     log.append(f"Optimized numeric cols: {before_mem:.2f}MB → {after_mem:.2f}MB")
     return df
+
 
 # ---------------- Main ----------------
 def main():
     log = []
-    files = [os.path.join(DATA_FOLDER, f) for f in os.listdir(DATA_FOLDER) if f.endswith(".csv")]
+    files = [
+        os.path.join(DATA_FOLDER, f)
+        for f in os.listdir(DATA_FOLDER)
+        if f.endswith(".csv")
+    ]
     dfs = [safe_read_csv(f) for f in files]
     df = pd.concat(dfs, ignore_index=True)
     log.append(f"Merged {len(files)} files: {df.shape}")
@@ -120,6 +132,7 @@ def main():
 
     print("✅ Saved cleaned dataset:", OUT_FILE, df_final.shape)
     print("Validation report written:", REPORT)
+
 
 if __name__ == "__main__":
     main()
