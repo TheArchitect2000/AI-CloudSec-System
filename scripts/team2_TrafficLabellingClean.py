@@ -93,18 +93,20 @@ def feature_selection(df, log, label_col=" Label"):
 
     return X_df
 
+
 # ---------------- Downcast + Round ----------------
 def optimize_numeric(df, log, decimals=2):
-    before_mem = df.memory_usage(deep=True).sum() / (1024*1024)
+    before_mem = df.memory_usage(deep=True).sum() / (1024 * 1024)
     for col in df.select_dtypes(include=[np.number]).columns:
         if pd.api.types.is_integer_dtype(df[col]):
             df[col] = pd.to_numeric(df[col], downcast="integer")
         else:
             df[col] = df[col].round(decimals)
             df[col] = pd.to_numeric(df[col], downcast="float")
-    after_mem = df.memory_usage(deep=True).sum() / (1024*1024)
+    after_mem = df.memory_usage(deep=True).sum() / (1024 * 1024)
     log.append(f"Optimized numeric cols: {before_mem:.2f}MB → {after_mem:.2f}MB")
     return df
+
 
 # ---------------- Main ----------------
 def main():
