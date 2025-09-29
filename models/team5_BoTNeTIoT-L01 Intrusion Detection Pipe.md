@@ -1,6 +1,6 @@
 # BoTNeTIoT-L01 Intrusion Detection Pipeline
 
-This file contains a Jupyter Notebook implementation of a **machine learning and deep learning pipeline** for the **BoTNeTIoT-L01 dataset**.  
+This file contains a Jupyter Notebook implementation of a **machine learning and deep learning pipeline** for the **BoTNeTIoT-L01 dataset**.
 > **Note:** For faster experimentation and lower memory use, the pipeline intentionally uses **only 100,000 rows** of the dataset.
 The workflow covers preprocessing, feature selection, model training, evaluation, and model persistence.
 
@@ -15,7 +15,7 @@ The workflow covers preprocessing, feature selection, model training, evaluation
 ---
 
 ### 2) Data Loading & Initial EDA
-- Reads **`BotNeTIoT-L01-v2.csv`** into a DataFrame. 
+- Reads **`BotNeTIoT-L01-v2.csv`** into a DataFrame.
 - Prints **columns**, `head()`, and `describe()`.
 - Displays unique values for **Attack** and **Attack_subType**.
 - Includes simple plots (count/pie) for attack and device distributions.
@@ -108,6 +108,6 @@ The workflow covers preprocessing, feature selection, model training, evaluation
   - `model.save(...)` (for Keras models)
 - Persists dataset splits (`to_csv`) to avoid retraining.
 
- 
 
- 
+
+
