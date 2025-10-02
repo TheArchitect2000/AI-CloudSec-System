@@ -43,7 +43,9 @@ def safe_read_csv(path):
 def clean_dataframe(df, log):
     before = len(df)
     df = df.dropna().drop_duplicates()
-    log.append(f"Dropna + duplicates: {before - len(df)} rows removed, now {len(df)} rows")
+    log.append(
+        f"Dropna + duplicates: {before - len(df)} rows removed, now {len(df)} rows"
+    )
 
     const_cols = df.columns[df.nunique() <= 1].tolist()
     if const_cols:
@@ -105,7 +107,9 @@ def optimize_numeric(df, log, decimals=2):
             df[col] = pd.to_numeric(df[col], downcast="float")
     after_mem = df.memory_usage(deep=True).sum() / (1024 * 1024)
     ratio = (before_mem - after_mem) / before_mem * 100
-    log.append(f"Optimized numeric cols: {before_mem:.2f}MB → {after_mem:.2f}MB (↓{ratio:.1f}%)")
+    log.append(
+        f"Optimized numeric cols: {before_mem:.2f}MB → {after_mem:.2f}MB (↓{ratio:.1f}%)"
+    )
     return df
 
 
