@@ -3,8 +3,10 @@ team2_TrafficLabellingClean.py
 -------------------------------
 Functions:
 - Safe CSV reader (utf-8-sig with latin1 fallback).
-- Basic cleaning: dropna, duplicates, constant columns, IP/Timestamp columns, extreme values.
-- Lightweight feature selection: low variance filter + high correlation filter.
+- Basic cleaning: dropna, duplicates, constant columns,
+  IP/Timestamp columns, extreme values.
+- Lightweight feature selection: low variance filter +
+  high correlation filter.
 - Numeric optimization: downcast + rounding to reduce file size.
 - Outputs both cleaned CSV and validation report directly into /datasets.
 """
@@ -129,7 +131,11 @@ def main():
     df_final = feature_selection(df, log)
     df_final = optimize_numeric(df_final, log, decimals=2)
 
-    df_final.to_csv(OUT_FILE, index=False)
+    df_final.to_csv(
+        OUT_FILE,
+        index=False,
+        encoding="utf-8-sig"
+    )
     with open(REPORT, "w", encoding="utf-8") as f:
         f.write("\n".join(str(x) for x in log))
 
