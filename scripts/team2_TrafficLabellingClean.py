@@ -131,11 +131,7 @@ def main():
     df_final = feature_selection(df, log)
     df_final = optimize_numeric(df_final, log, decimals=2)
 
-    df_final.to_csv(
-        OUT_FILE,
-        index=False,
-        encoding="utf-8-sig"
-    )
+    df_final.to_csv(OUT_FILE, index=False, encoding="utf-8-sig")
     with open(REPORT, "w", encoding="utf-8") as f:
         f.write("\n".join(str(x) for x in log))
 
