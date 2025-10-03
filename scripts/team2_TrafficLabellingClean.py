@@ -110,7 +110,8 @@ def optimize_numeric(df, log, decimals=2):
     after_mem = df.memory_usage(deep=True).sum() / (1024 * 1024)
     ratio = (before_mem - after_mem) / before_mem * 100
     log.append(
-        f"Optimized numeric cols: {before_mem:.2f}MB → {after_mem:.2f}MB (↓{ratio:.1f}%)"
+        f"Optimized numeric cols: {before_mem:.2f}MB →"
+        f"{after_mem:.2f}MB (↓{ratio:.1f}%)"
     )
     return df
 
