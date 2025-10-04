@@ -1,2 +1,0 @@
-ton-iot.csv, https://www.kaggle.com/datasets/programmer3/ton-iot-network-intrusion-dataset
-BotNeTIoT-L01_label_NoDuplicates.csv, https://www.kaggle.com/datasets/azalhowaide/iot-dataset-for-intrusion-detection-systems-ids/data
