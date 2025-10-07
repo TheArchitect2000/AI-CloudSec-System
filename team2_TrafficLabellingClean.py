@@ -30,6 +30,7 @@ REPORT = os.path.join(OUT_DIR, "team2_TrafficLabellingClean_report.txt")
 mlflow.set_tracking_uri(f"file:///{PROJECT_DIR}/mlruns")
 mlflow.set_experiment("Team2_Feature_Engineering_Traffic_Data")
 
+
 # ---------------- Functions ----------------
 def safe_read_csv(path):
     try:
@@ -43,7 +44,9 @@ def safe_read_csv(path):
 def clean_dataframe(df, log):
     before = len(df)
     df = df.dropna().drop_duplicates()
-    log.append(f"Dropna + duplicates: {before - len(df)} rows removed, now {len(df)} rows")
+    log.append(
+        f"Dropna + duplicates: {before - len(df)} rows removed, now {len(df)} rows"
+    )
 
     const_cols = df.columns[df.nunique() <= 1].tolist()
     if const_cols:
@@ -92,16 +95,18 @@ def feature_selection(df, log, label_col=" Label"):
 
 
 def optimize_numeric(df, log, decimals=2):
-    before_mem = df.memory_usage(deep=True).sum() / (1024*1024)
+    before_mem = df.memory_usage(deep=True).sum() / (1024 * 1024)
     for col in df.select_dtypes(include=[np.number]).columns:
         if pd.api.types.is_integer_dtype(df[col]):
             df[col] = pd.to_numeric(df[col], downcast="integer")
         else:
             df[col] = df[col].round(decimals)
             df[col] = pd.to_numeric(df[col], downcast="float")
-    after_mem = df.memory_usage(deep=True).sum() / (1024*1024)
+    after_mem = df.memory_usage(deep=True).sum() / (1024 * 1024)
     ratio = (before_mem - after_mem) / before_mem * 100
-    log.append(f"Optimized numeric cols: {before_mem:.2f}MB → {after_mem:.2f}MB (↓{ratio:.1f}%)")
+    log.append(
+        f"Optimized numeric cols: {before_mem:.2f}MB → {after_mem:.2f}MB (↓{ratio:.1f}%)"
+    )
     return df
 
 
@@ -113,7 +118,11 @@ def main():
         mlflow.set_tag("step", "data_cleaning_and_feature_selection")
 
         # Read all CSV files
-        files = [os.path.join(DATA_FOLDER, f) for f in os.listdir(DATA_FOLDER) if f.endswith(".csv")]
+        files = [
+            os.path.join(DATA_FOLDER, f)
+            for f in os.listdir(DATA_FOLDER)
+            if f.endswith(".csv")
+        ]
         dfs = [safe_read_csv(f) for f in files]
         df = pd.concat(dfs, ignore_index=True)
         log.append(f"Merged {len(files)} files: {df.shape}")
