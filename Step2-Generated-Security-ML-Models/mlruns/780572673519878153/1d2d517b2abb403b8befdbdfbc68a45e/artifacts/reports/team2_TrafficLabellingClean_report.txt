@@ -4,4 +4,4 @@ Dropped 8 constant cols: [' Bwd PSH Flags', ' Bwd URG Flags', 'Fwd Avg Bytes/Bul
 Dropped 3 IP/Timestamp cols
 Low variance removed: 9 cols
 High correlation removed: 17 cols
-Optimized numeric cols: 466.14MB → 263.58MB (↓43.5%)
+Optimized numeric cols: 466.14MB →263.58MB (↓43.5%)
