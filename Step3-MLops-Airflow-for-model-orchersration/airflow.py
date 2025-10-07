@@ -20,16 +20,16 @@ def ml_pipeline():
         path = kagglehub.dataset_download("camnugent/california-housing-prices")
         df = pd.read_csv(path + "/housing.csv")
         return df
-    
+
     @task
     def train_model(df):
         df.dropna(inplace=True)
-        xtrain, xtest, ytrain, ytest = train_test_split(df.drop(columns=['median_house_value','ocean_proximity']), 
+        xtrain, xtest, ytrain, ytest = train_test_split(df.drop(columns=['median_house_value','ocean_proximity']),
                                                         df['median_house_value'], test_size=0.3, random_state=42)
         model = LinearRegression()
         model.fit(xtrain, ytrain)
         return model, xtest, ytest
-    
+
     @task
     def evaluate_model(model_data):
         model, xtest, ytest = model_data
@@ -42,4 +42,4 @@ def ml_pipeline():
 
 ml_pipeline()
 
-# %%    
+# %%
