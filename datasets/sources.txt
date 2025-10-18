@@ -1,3 +1,0 @@
-team11_ton-iot, https://www.kaggle.com/datasets/programmer3/ton-iot-network-intrusion-dataset
-team11_BotNeTIoT-L01 https://www.kaggle.com/datasets/azalhowaide/iot-dataset-for-intrusion-detection-systems-ids/data
-team11_Group_11_TON_IoT_unsw_edu_au_cleaned, https://research.unsw.edu.au/projects/toniot-datasets

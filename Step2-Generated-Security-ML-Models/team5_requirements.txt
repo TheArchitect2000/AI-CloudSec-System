@@ -1,0 +1,10 @@
+
+
+# Core libraries
+pandas==2.2.2
+numpy==1.26.4
+matplotlib==3.9.2
+seaborn==0.13.2
+scikit-learn==1.5.2
+kagglehub==0.1.13
+mlflow==2.7.0
