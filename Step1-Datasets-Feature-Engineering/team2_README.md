@@ -2,22 +2,22 @@
 
 This document summarizes **Team 2’s Step 1: Dataset Cleaning and Optimization** for the **CICIDS2017** network traffic dataset. The goal of this stage was to merge multiple raw CSV files, remove missing and duplicate entries, drop constant and redundant features, and produce a memory-optimized dataset ready for Step 2 (Feature Engineering) and subsequent modeling.
 
-All scripts were implemented in:  
+All scripts were implemented in:
 AI-CloudSec-System-1/Step1-Datasets-Feature-Engineering/
 
-Main notebook: `team2_TrafficLabellingClean.ipynb`  
+Main notebook: `team2_TrafficLabellingClean.ipynb`
 Execution environment: Python 3.11, pandas 2.1.0, numpy 1.26.5, scikit-learn 1.3.2, jupyter 1.0.0.
 
 ---
 
 ## 1. Data Source
-- Original dataset: **CICIDS2017 network traffic dataset**  
-- Official dataset URL: [http://cicresearch.ca/CICDataset/CIC-IDS-2017/Dataset/CIC-IDS-2017/CSVs/](http://cicresearch.ca/CICDataset/CIC-IDS-2017/Dataset/CIC-IDS-2017/CSVs/)  
-- Multiple daily CSVs were merged into one consolidated dataset for Team 2.  
+- Original dataset: **CICIDS2017 network traffic dataset**
+- Official dataset URL: [http://cicresearch.ca/CICDataset/CIC-IDS-2017/Dataset/CIC-IDS-2017/CSVs/](http://cicresearch.ca/CICDataset/CIC-IDS-2017/Dataset/CIC-IDS-2017/CSVs/)
+- Multiple daily CSVs were merged into one consolidated dataset for Team 2.
 - Source folder:  C:\Users\hi\AI-CloudSec-System\data\traffic
-  Step1-Datasets-Feature-Engineering/data/traffic/  
+  Step1-Datasets-Feature-Engineering/data/traffic/
 - Cleaned output:  C:\Users\hi\AI-CloudSec-System-1\Step1-Datasets-Feature-Engineering
-  Step1-Datasets-Feature-Engineering/team2_TrafficLabelling/team2_TrafficLabellingClean.csv  
+  Step1-Datasets-Feature-Engineering/team2_TrafficLabelling/team2_TrafficLabellingClean.csv
 
 ---
 
@@ -90,25 +90,25 @@ Step1-Datasets-Feature-Engineering/
 ---
 
 ## 7. Team Information
-- **Project:** AI-CloudSec-System  
-- **Course:** Operating Systems / Capstone Project  
-- **Team:** Group 2  
+- **Project:** AI-CloudSec-System
+- **Course:** Operating Systems / Capstone Project
+- **Team:** Group 2
 
-**Team Members:**  
-- Jinyi Hu – 2106620 – j.hu3@student.fdu.edu  
-- Jia Min – 2107076 – j.min@student.fdu.edu  
-- Wenjie Xing – 2098805 – w.xing@student.fdu.edu  
+**Team Members:**
+- Jinyi Hu – 2106620 – j.hu3@student.fdu.edu
+- Jia Min – 2107076 – j.min@student.fdu.edu
+- Wenjie Xing – 2098805 – w.xing@student.fdu.edu
 
-**Instructor:** Prof. Gholamreza Ramezan  
-**Institution:** Fairleigh Dickinson University (Vancouver)  
-**Date:** October 2025  
+**Instructor:** Prof. Gholamreza Ramezan
+**Institution:** Fairleigh Dickinson University (Vancouver)
+**Date:** October 2025
 
 ---
 
 ## 8. License and Notes
-- The cleaned dataset is intended for academic use under FDU coursework.  
-- This file will serve as the input for **Step 2: Feature Engineering**.  
-- Please cite as: *Team 2 – AI CloudSec System (2025).*  
+- The cleaned dataset is intended for academic use under FDU coursework.
+- This file will serve as the input for **Step 2: Feature Engineering**.
+- Please cite as: *Team 2 – AI CloudSec System (2025).*
 
 ---
 
